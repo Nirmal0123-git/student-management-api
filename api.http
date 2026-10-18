@@ -1,0 +1,28 @@
+### Get all students
+GET http://localhost:5000/students
+### Get one student
+GET http://localhost:5000/students/1
+### Search student using Name
+GET http://localhost:5000/students/search?name=Nirmal&email=nirmal@gmail.com
+### Create student
+POST http://localhost:5000/students
+Content-Type: application/json
+
+{
+    "name": "Vimaln",
+    "email": "iytm6l@gmail.com",
+    "age": 26,
+    "course": "Java"
+}
+### Update student
+PUT http://localhost:5000/students/2
+Content-Type: application/json
+
+{
+    "name": "Ranjit",
+    "email": "ranjith@gmail.com",
+    "age": 24,
+    "course": "Full Stack"
+}
+### Delete student
+DELETE http://localhost:5000/students/1
