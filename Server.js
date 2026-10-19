@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
@@ -125,16 +127,17 @@ app.delete("/students/:id", async (req, res) => {
         });
     }
 });
+
 mongoose
-    .connect("mongodb://127.0.0.1:27017/todoDB")
+    .connect(process.env.MONGO_URI)
     .then(() => {
         console.log("MongoDB Connected");
-        app.listen(5000, () => {
+        app.listen(process.env.PORT || 5000, () => {
             console.log("Server running at http://localhost:5000");
             console.log("Students API: http://localhost:5000/students");
         });
     })
     .catch((error) => {
         console.log("MongoDB Connection Failed:");
-        console.log(error);
+        console.log(error.message);
     });
